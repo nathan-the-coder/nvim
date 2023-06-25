@@ -1,4 +1,4 @@
-local colors = require('dracula.palette')
+local colors = require('ayu')
 
 require('bufferline').setup({
   highlights = {
@@ -19,11 +19,6 @@ require('bufferline').setup({
     diagnostics_indicator = function(count, level, diagnostics_dict, context)
       if context.buffer:current() then
         return ''
-      end
-      if level:match('error') then
-        return ' ' .. vim.g.diagnostic_icons.Error
-      elseif level:match('warning') then
-        return ' ' .. vim.g.diagnostic_icons.Warning
       end
       return ''
     end,

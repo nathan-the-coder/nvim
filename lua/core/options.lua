@@ -6,6 +6,7 @@ local options = {
 
 	completeopt = 'menu,menuone,noselect',
 
+  guifont = "n-v-c-sm:hor25,i:hor25",
 
 	termguicolors = true,
 
@@ -24,10 +25,12 @@ local options = {
 	autoindent = true,
 	smartindent = true,
 
+  laststatus = 3,
+
+  showmode = false,
 }
 
 for option, value in pairs(options) do
 	vim.o[option] = value
 end
 
-vim.cmd('colorscheme dracula')
