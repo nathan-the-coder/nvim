@@ -10,7 +10,7 @@ require('core.keymaps')
 require('core.globals')
 require('core.autocmds')
 
-require('theme.decaycs')
+require('theme.nord')
 
 require('configs.gs')
 

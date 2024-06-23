@@ -32,8 +32,8 @@ return require('packer').startup(function(use)
   }
   use 'mfussenegger/nvim-dap'
 
-  use {'decaycs/decay.nvim', as = 'decay'}
-
+  -- nord colorscheme
+  use "shaunsingh/nord.nvim"
 
   -- NvimTree
   use { 
@@ -45,7 +45,11 @@ return require('packer').startup(function(use)
 
   use 'nvim-lualine/lualine.nvim' 
 
-  use 'willothy/nvim-cokeline'
+  use { 'willothy/nvim-cokeline',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    }
+  }
 
   use 'nvim-treesitter/nvim-treesitter'
 
@@ -70,8 +74,6 @@ return require('packer').startup(function(use)
  use "elkowar/yuck.vim"
 
  use "norcalli/nvim-colorizer.lua"
-
- use 'Exafunction/codeium.vim'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

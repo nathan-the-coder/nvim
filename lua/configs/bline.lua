@@ -1,4 +1,4 @@
-local colors = require('ayu')
+local colors = require('nordic.colors')
 
 require('bufferline').setup({
   highlights = {

@@ -30,6 +30,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 local map = vim.api.nvim_set_keymap
 local opts = { silent = true, noremap = true }
 
+vim.g.mapleader = " "
  
 map('n', '<C-h>', '<C-w>h', opts)
 map('n', '<C-l>', '<C-w>l', opts)
