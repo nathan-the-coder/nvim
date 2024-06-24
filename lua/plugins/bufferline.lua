@@ -1,3 +1,7 @@
+
+return {
+	"willothy/nvim-cokeline",
+	config = function()
 local hlgroups = require("cokeline.hlgroups")
 
 require('cokeline').setup({
@@ -49,3 +53,5 @@ require('cokeline').setup({
     },
   },
 })
+	end,
+}

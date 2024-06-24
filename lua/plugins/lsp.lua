@@ -1,3 +1,33 @@
+function setup_mason()
+	require('mason').setup({})
+	require('mason-lspconfig').setup({
+	    -- A list of servers to automatically install if they're not already installed. Example: { "rust_analyzer@nightly", "lua_ls" }
+	    -- This setting has no relation with the `automatic_installation` setting.
+	    ---@type string[]
+	    ensure_installed = {},
+
+	    -- Whether servers that are set up (via lspconfig) should be automatically installed if they're not already installed.
+	    -- This setting has no relation with the `ensure_installed` setting.
+	    -- Can either be:
+	    --   - false: Servers are not automatically installed.
+	    --   - true: All servers set up via lspconfig are automatically installed.
+	    --   - { exclude: string[] }: All servers set up via lspconfig, except the ones provided in the list, are automatically installed.
+	    --       Example: automatic_installation = { exclude = { "rust_analyzer", "solargraph" } }
+	    ---@type boolean
+	    automatic_installation = true,
+
+	    -- See `:h mason-lspconfig.setup_handlers()`
+	    ---@type table<string, fun(server_name: string)>?
+	    handlers = nil,
+	})
+
+	require('mason-lspconfig').setup_handlers {
+	  function (server_name)
+	    require('lspconfig')[server_name].setup {}
+	  end,
+	}
+end
+function setup_completion()
 ---
 -- Autocomplete
 ---
@@ -18,6 +48,7 @@ cmp.setup({
   },
   sources = {
     {name = 'path'},
+    { name = 'codeium' },
     {name = 'nvim_lsp', keyword_length = 1},
     {name = 'buffer', keyword_length = 3},
     {name = 'luasnip', keyword_length = 2},
@@ -90,3 +121,44 @@ cmp.setup({
     end, {'i', 's'}),
   },
 })
+end
+function setup_lsp()
+local lspconfig = require('lspconfig')
+local lsp_defaults = lspconfig.util.default_config
+
+lsp_defaults.capabilities = vim.tbl_deep_extend(
+  'force',
+  lsp_defaults.capabilities,
+  require('cmp_nvim_lsp').default_capabilities()
+)
+end
+
+return {
+	{ "williamboman/mason.nvim",
+		dependencies = {
+			"williamboman/mason-lspconfig.nvim",
+		},
+		config = function()
+			setup_mason()
+		end
+	},
+	{ "neovim/nvim-lspconfig",
+		config = function()
+			setup_lsp()
+		end
+	},
+	{ "hrsh7th/nvim-cmp",
+		dependencies = {
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"saadparwaiz1/cmp_luasnip",
+			"L3MON4D3/LuaSnip",
+			"rafamadriz/friendly-snippets"
+		},
+		config = function()
+			setup_completion()
+		end
+	}
+}
+

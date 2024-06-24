@@ -44,5 +44,5 @@ map('n', '<A-,>', ':bprevious<CR>', opts)
 map('n', '<A-.>', ':bnext<CR>', opts)
 map('n', '<A-c>', ':bdelete<CR>', opts)
 
-map('n', '<leader>n', ':NvimTreeToggle<CR>', opts)
+map('n', '<C-n>', ':NvimTreeToggle<CR>', opts)
 
