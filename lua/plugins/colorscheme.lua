@@ -1,7 +1,10 @@
 
 return {
-	'shaunsingh/nord.nvim',
+	'navarasu/onedark.nvim',
 	config = function()
-		vim.cmd[[colorscheme nord]]
+    require('onedark').setup{
+      style = 'dark',
+    }
+    require('onedark').load()
 	end,
 }

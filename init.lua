@@ -1,5 +1,4 @@
-package.path = "/home/lein/.config/nvim/?.lua;" .. package.path
-require('./plugins')
+require('config.lazy')
 require('diagnostics')
 require('core')
 
