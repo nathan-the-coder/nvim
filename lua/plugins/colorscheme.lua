@@ -1,7 +1,7 @@
 
 return {
-	'shaunsingh/nord.nvim',
-	config = function()
-		vim.cmd[[colorscheme nord]]
-	end,
+    'cranberry-clockworks/coal.nvim',
+    config = function()
+        require('coal').setup()
+    end
 }

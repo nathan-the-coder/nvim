@@ -2,12 +2,17 @@
 local options = {
 	cursorline = true,
 
+  clipboard = "unnamedplus",
+
 	fileformat = 'unix',
+
+  whichwrap = "h,l",
 
 	completeopt = 'menu,menuone,noselect',
 
-  guifont = "n-v-c-sm:hor25,i:hor25",
+  guicursor = "n-v-c-sm:hor25,i:hor25",
 
+  colorcolumn = "80",
 	termguicolors = true,
 
 	-- Tabs
@@ -24,8 +29,6 @@ local options = {
 
 	autoindent = true,
 	smartindent = true,
-
-  laststatus = 3,
 
   showmode = false,
 }
