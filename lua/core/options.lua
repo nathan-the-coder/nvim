@@ -1,39 +1,36 @@
+vim.opt.cursorline = true
 
-local options = {
-	cursorline = true,
+vim.opt.clipboard = "unnamedplus"
 
-  clipboard = "unnamedplus",
+vim.opt.fileformat = 'unix'
 
-	fileformat = 'unix',
+vim.opt.clipboard = "unnamedplus"
 
-  whichwrap = "h,l",
+vim.opt.completeopt = {"menu", "menuone", "noselect" }
 
-	completeopt = 'menu,menuone,noselect',
+vim.opt.guicursor = "n-v-c-sm:hor25,i:hor25"
 
-  guicursor = "n-v-c-sm:hor25,i:hor25",
+vim.opt.colorcolumn = "80"
+vim.opt.termguicolors = true
 
-  colorcolumn = "80",
-	termguicolors = true,
+-- Tabs
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
 
-	-- Tabs
-	tabstop = 2,
-	softtabstop = 2,
-	shiftwidth = 2,
-	expandtab = true,
+vim.opt.number = true
+vim.opt.relativenumber = true
 
-	number = true,
-	relativenumber = true,
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
-	ignorecase = true,
-	smartcase = true,
+vim.opt.autoindent = true
+vim.opt.smartindent = true
 
-	autoindent = true,
-	smartindent = true,
+vim.opt.showmode = false
+vim.opt.swapfile = false
 
-  showmode = false,
-}
+vim.opt.whichwrap:append("<,>,[,]")  -- arrow keys and other movements
 
-for option, value in pairs(options) do
-	vim.o[option] = value
-end
-
+vim.opt.guifont = "JetBrainsMono Nerd Font:h11"

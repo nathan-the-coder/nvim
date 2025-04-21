@@ -1,7 +1,9 @@
 
 return {
-    'cranberry-clockworks/coal.nvim',
+    'catppuccin/nvim',
+    name = 'catppuccin',
+    priority = 1000,
     config = function()
-        require('coal').setup()
+      vim.cmd('colorscheme catppuccin-mocha')
     end
 }
