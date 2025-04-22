@@ -46,3 +46,8 @@ map('n', '<A-c>', ':bdelete<CR>', opts)
 
 map('n', '<C-n>', ':NvimTreeToggle<CR>', opts)
 
+vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
+
+-- Requires you to have Telescope installed and set up
+vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Find Files" })
+vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find Buffers" })

@@ -2,8 +2,6 @@ vim.opt.cursorline = true
 
 vim.opt.clipboard = "unnamedplus"
 
-vim.opt.fileformat = 'unix'
-
 vim.opt.clipboard = "unnamedplus"
 
 vim.opt.completeopt = {"menu", "menuone", "noselect" }
