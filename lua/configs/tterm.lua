@@ -56,3 +56,13 @@ local python = Terminal:new({ cmd = "python3", hidden = true })
 function _PYTHON_TOGGLE()
  python:toggle()
 end
+
+local wk = require("which-key")
+wk.add({
+  { "<leader>t", group = "Terminal" },
+  { "<leader>tn", function() _NODE_TOGGLE() end, desc = "Node Terminal" },
+  { "<leader>tp", function() _PYTHON_TOGGLE() end, desc = "Python Terminal" },
+  { "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", desc = "Floating Terminal" },
+  { "<leader>th", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", desc = "Horizontal Terminal" },
+  { "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", desc = "Vertical Terminal" },
+})
