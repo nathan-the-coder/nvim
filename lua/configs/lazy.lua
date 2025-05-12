@@ -18,6 +18,7 @@ vim.g.maplocalleader = "\\"
 
 require("lazy").setup({
 	{ import = "plugins"},
+	"folke/which-key.nvim",
 	{ "folke/neoconf.nvim", cmd = "Neoconf" },
 	"folke/neodev.nvim",
 })
