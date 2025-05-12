@@ -1,34 +1,38 @@
-vim.opt.cursorline = true
+local o = vim.opt
+o.cursorline = true
 
-vim.opt.clipboard = "unnamedplus"
+o.clipboard = "unnamedplus"
 
-vim.opt.clipboard = "unnamedplus"
+o.clipboard = "unnamedplus"
 
-vim.opt.completeopt = {"menu", "menuone", "noselect" }
+o.completeopt = {"menu", "menuone", "noselect" }
+vim.o.pumblend = 0
+vim.o.winblend = 0
 
-vim.opt.guicursor = "n-v-c-sm:hor25,i:hor25"
+o.guicursor = "n-v-c-sm:hor25,i:hor25"
+o.termguicolors = true
+o.background = "dark"
 
-vim.opt.colorcolumn = "80"
-vim.opt.termguicolors = true
+o.colorcolumn = "80"
 
 -- Tabs
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
+o.tabstop = 2
+o.softtabstop = 2
+o.shiftwidth = 2
+o.expandtab = true
 
-vim.opt.number = true
-vim.opt.relativenumber = true
+o.number = true
+o.relativenumber = true
 
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
+o.ignorecase = true
+o.smartcase = true
 
-vim.opt.autoindent = true
-vim.opt.smartindent = true
+o.autoindent = true
+o.smartindent = true
 
-vim.opt.showmode = false
-vim.opt.swapfile = false
+o.showmode = false
+o.swapfile = false
 
-vim.opt.whichwrap:append("<,>,[,]")  -- arrow keys and other movements
+o.whichwrap:append("<,>,[,]")  -- arrow keys and other movements
 
-vim.opt.guifont = "JetBrainsMono Nerd Font:h11"
+o.guifont = "JetBrainsMono Nerd Font:h11"
