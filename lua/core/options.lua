@@ -6,8 +6,6 @@ vim.opt.clipboard = "unnamedplus"
 
 vim.opt.completeopt = {"menu", "menuone", "noselect" }
 
-vim.opt.guicursor = "n-v-c-sm:hor25,i:hor25"
-
 vim.opt.colorcolumn = "80"
 vim.opt.termguicolors = true
 
