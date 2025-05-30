@@ -27,7 +27,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end
 })
 
-local map = vim.api.nvim_set_keymap
+local map = vim.keymap.set
 local opts = { silent = true, noremap = true }
 
 vim.g.mapleader = " "
@@ -44,10 +44,28 @@ map('n', '<A-,>', ':bprevious<CR>', opts)
 map('n', '<A-.>', ':bnext<CR>', opts)
 map('n', '<A-c>', ':bdelete<CR>', opts)
 
-map('n', '<C-n>', ':NvimTreeToggle<CR>', opts)
-
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
 
 -- Requires you to have Telescope installed and set up
 vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Find Files" })
 vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find Buffers" })
+
+-- Enable the use of <Tab> and <S-Tab> for navigation through completion list
+local imap_expr = function(lhs, rhs)
+vim.keymap.set('i', lhs, rhs, { expr = true })
+end
+imap_expr('<Tab>',   [[pumvisible() ? "\<C-n>" : "\<Tab>"]])
+imap_expr('<S-Tab>', [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]])
+
+
+-- Get a more consistent behaviro of <CR>.
+_G.cr_action = function()
+-- If there is selected item in popup, accept it with <C-y>
+if vim.fn.complete_info()['selected'] ~= -1 then return '\25' end
+-- Fall back to plain `<CR>`. You might want to customize according
+-- to other plugins. For example if 'mini.pairs' is set up, replace
+-- next line with `return MiniPairs.cr()`
+return '\r'
+end
+
+vim.keymap.set('i', '<CR>', 'v:lua.cr_action()', { expr = true })
