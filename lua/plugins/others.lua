@@ -11,6 +11,4 @@ return {
       require('colorizer').setup()
     end
   },
-
-  { 'echasnovski/mini.icons', version = '*' },
 }

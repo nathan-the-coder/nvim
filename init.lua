@@ -2,7 +2,9 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-require('core')
+require('globals')
+require('autocmds')
+require('keymaps')
+require('options')
 
-require('configs.lazy')
-
+require('config.lazy')

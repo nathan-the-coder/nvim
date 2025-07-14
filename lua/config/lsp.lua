@@ -1,4 +1,7 @@
 
+local lspconfig = require('lspconfig')
+local lsp_defaults = lspconfig.util.default_config
+
 local mason = require('mason')
 local mason_lspconfig = require('mason-lspconfig')
 
